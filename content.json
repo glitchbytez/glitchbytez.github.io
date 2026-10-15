@@ -46,7 +46,7 @@
         "springdoc-openapi"
       ],
       "links": {
-        "repo": "TODO(Ronald): repo URL",
+        "repo": "https://github.com/glitchbytez/splitwise",
         "demo": "",
         "docs": ""
       },
@@ -54,6 +54,33 @@
       "imageWidth": 1200,
       "imageHeight": 750,
       "imageAlt": "TODO(Ronald): describe the screenshot, e.g. Swagger UI listing the API endpoints"
+    },
+    {
+      "id": "rasa-chat-widget",
+      "title": "Rasa Chat Widget",
+      "status": "Published on npm",
+      "summary": "A drop-in React chat widget for Rasa chatbots, with a handoff to a live human agent when the bot can't help.",
+      "problem": "A Rasa bot needs a front end people can actually talk to, and a way to reach a real person when the bot runs out of answers.",
+      "role": "Built and published the package on my own",
+      "highlights": [
+        "Real-time messaging over Socket.IO, with a second connection that hands the chat over to a live agent",
+        "Chat history kept across visits, plus offline detection and automatic reconnection",
+        "Packaged with Rollup as an npm library with TypeScript definitions, a built-in feedback form and three screen positions"
+      ],
+      "stack": [
+        "React",
+        "JavaScript",
+        "Socket.IO",
+        "Zustand",
+        "Tailwind CSS",
+        "Rollup"
+      ],
+      "links": {
+        "repo": "https://github.com/glitchbytez/rasa-chat-widget",
+        "npm": "https://www.npmjs.com/package/@glitchbytez/rasa-chat-widget",
+        "demo": "",
+        "docs": ""
+      }
     }
   ],
   "skills": {

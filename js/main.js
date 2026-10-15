@@ -87,6 +87,7 @@
   const LINK_LABELS = {
     repo: "Source on GitHub",
     docs: "API docs",
+    npm: "Package on npm",
     demo: "Live demo",
   };
 
