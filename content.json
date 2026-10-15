@@ -36,8 +36,20 @@
         "Dockerised local setup with OpenAPI docs via springdoc-openapi"
       ],
       "next": "Expenses with equal, exact and percentage splits, balances, settlements and debt simplification",
-      "stack": ["Java 21", "Spring Boot", "PostgreSQL", "Flyway", "Docker", "JWT", "springdoc-openapi"],
-      "links": { "repo": "TODO(Ronald): repo URL", "demo": "", "docs": "" },
+      "stack": [
+        "Java 21",
+        "Spring Boot",
+        "PostgreSQL",
+        "Flyway",
+        "Docker",
+        "JWT",
+        "springdoc-openapi"
+      ],
+      "links": {
+        "repo": "TODO(Ronald): repo URL",
+        "demo": "",
+        "docs": ""
+      },
       "image": "assets/img/splitwise.webp",
       "imageWidth": 1200,
       "imageHeight": 750,
@@ -45,16 +57,76 @@
     }
   ],
   "skills": {
-    "Backend & data": ["Java", "Spring Boot", "PostgreSQL", "REST APIs", "springdoc-openapi"],
-    "Cloud & delivery": ["Azure", "GitHub", "Docker"],
-    "Networking & support": ["CCNA (in progress)", "IT support"]
+    "Backend & data": [
+      "Java",
+      "Spring Boot",
+      "PostgreSQL",
+      "REST APIs",
+      "springdoc-openapi"
+    ],
+    "Cloud & delivery": [
+      "Azure",
+      "GitHub",
+      "Docker"
+    ],
+    "Networking & support": [
+      "CCNA (in progress)",
+      "IT support"
+    ]
   },
   "shelf": {
     "intro": "TODO(Ronald): one line on what you read for"
   },
   "books": [
-    { "title": "Placeholder book one", "author": "Author", "status": "reading", "note": "A short note on why this is on the shelf.", "cover": "", "placeholder": true },
-    { "title": "Placeholder book two", "author": "Author", "status": "read", "note": "A short note on why this is on the shelf.", "cover": "", "placeholder": true },
-    { "title": "Placeholder book three", "author": "Author", "status": "next", "note": "A short note on why this is on the shelf.", "cover": "", "placeholder": true }
+    {
+      "title": "The Subtle Art of Not Giving a F*ck",
+      "author": "Mark Manson",
+      "status": "reading",
+      "note": "On choosing carefully what is worth caring about.",
+      "cover": "assets/img/books/subtle-art.webp",
+      "coverWidth": 240,
+      "coverHeight": 359,
+      "placeholder": true
+    },
+    {
+      "title": "Atomic Habits",
+      "author": "James Clear",
+      "status": "read",
+      "note": "Small, repeatable changes over big resolutions.",
+      "cover": "assets/img/books/atomic-habits.webp",
+      "coverWidth": 240,
+      "coverHeight": 325,
+      "placeholder": true
+    },
+    {
+      "title": "Deep Work",
+      "author": "Cal Newport",
+      "status": "read",
+      "note": "Making room for long, undistracted focus.",
+      "cover": "assets/img/books/deep-work.webp",
+      "coverWidth": 240,
+      "coverHeight": 363,
+      "placeholder": true
+    },
+    {
+      "title": "The Pragmatic Programmer",
+      "author": "David Thomas, Andrew Hunt",
+      "status": "next",
+      "note": "Habits and judgement for working software developers.",
+      "cover": "assets/img/books/pragmatic-programmer.webp",
+      "coverWidth": 240,
+      "coverHeight": 314,
+      "placeholder": true
+    },
+    {
+      "title": "Wabi-Sabi for Artists, Designers, Poets & Philosophers",
+      "author": "Leonard Koren",
+      "status": "next",
+      "note": "The short book behind this site's look.",
+      "cover": "assets/img/books/wabi-sabi.webp",
+      "coverWidth": 240,
+      "coverHeight": 369,
+      "placeholder": true
+    }
   ]
 }

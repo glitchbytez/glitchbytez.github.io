@@ -207,22 +207,29 @@
   ];
 
   function renderBook(book, index) {
-    const spine = book.cover && !isTodo(book.cover)
-      ? el("img", { class: "book__cover", src: book.cover, alt: "", width: 120, height: 180, loading: "lazy" })
+    const hasCover = hasValue(book.cover);
+    const art = hasCover
+      ? el("img", {
+          class: "book__cover",
+          src: book.cover,
+          alt: "",
+          width: book.coverWidth || 240,
+          height: book.coverHeight || 360,
+          loading: "lazy",
+          decoding: "async",
+        })
       : el("span", { class: "book__spine-title", text: book.title });
 
-    // Tone and height vary by position: a shelf of real books is never uniform.
-    const variant = `book--tone-${(index % 4) + 1} book--h-${(index % 3) + 1}`;
+    // Height (and spine tone) vary by position: a shelf of real books is never uniform.
+    const variant = `book--h-${(index % 3) + 1}` + (hasCover ? " book--cover" : ` book--tone-${(index % 4) + 1}`);
 
     return el("li", { class: `book ${variant}`, tabindex: "0" }, [
-      el("div", { class: "book__spine", "aria-hidden": "true" }, spine),
+      el("div", { class: "book__art", "aria-hidden": "true" }, art),
       el("div", { class: "book__info" }, [
-        el("p", { class: "book__title" }, [
-          el("cite", { text: book.title }),
-          book.placeholder && DEV && el("mark", { class: "todo", text: "placeholder" }),
-        ]),
+        el("p", { class: "book__title" }, el("cite", { text: book.title })),
         hasValue(book.author) && el("p", { class: "book__author", text: book.author }),
         textOrTodo(book.note) && el("p", { class: "book__note" }, textOrTodo(book.note)),
+        book.placeholder && DEV && el("mark", { class: "todo", text: "placeholder" }),
       ]),
     ]);
   }
@@ -251,21 +258,97 @@
     }));
   }
 
-  function renderContact(contact, links, person) {
-    const items = [
-      hasValue(links.email) && ["Email", el("a", { href: `mailto:${links.email}` }, links.email)],
-      hasValue(links.github) && ["GitHub", el("a", { href: links.github, rel: "me" }, links.github.replace(/^https?:\/\//, ""))],
-      hasValue(links.linkedin) && ["LinkedIn", el("a", { href: links.linkedin, rel: "me" }, links.linkedin.replace(/^https?:\/\/(www\.)?/, ""))],
-      textOrTodo(person.location) && ["Based in", textOrTodo(person.location)],
-    ].filter(Boolean);
+  const SVG_NS = "http://www.w3.org/2000/svg";
 
-    fill("contact", [
-      contact && textOrTodo(contact.line) && el("p", { class: "contact__line" }, textOrTodo(contact.line)),
-      el("dl", { class: "contact__list" }, items.flatMap(([label, value]) => [
-        el("dt", { text: label }),
-        el("dd", {}, value),
-      ])),
-    ]);
+  const ICONS = {
+    email: { viewBox: "0 0 24 24", stroke: ["M3.5 6h17v12h-17z", "M3.5 6.5 12 12.5l8.5-6"] },
+    github: {
+      viewBox: "0 0 16 16",
+      fill: ["M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"],
+    },
+    linkedin: {
+      viewBox: "0 0 24 24",
+      stroke: ["M6.5 3.5h11a3 3 0 0 1 3 3v11a3 3 0 0 1-3 3h-11a3 3 0 0 1-3-3v-11a3 3 0 0 1 3-3z", "M8.5 10.5V16", "M12 16v-5.5", "M12 13c0-1.6 1-2.6 2.3-2.6s2.2 1 2.2 2.6V16"],
+      fill: ["M8.5 6.6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"],
+    },
+  };
+
+  function icon(name) {
+    const spec = ICONS[name];
+    const svg = document.createElementNS(SVG_NS, "svg");
+    svg.setAttribute("viewBox", spec.viewBox);
+    svg.setAttribute("width", "22");
+    svg.setAttribute("height", "22");
+    svg.setAttribute("aria-hidden", "true");
+    svg.setAttribute("focusable", "false");
+    svg.setAttribute("class", "channel__icon");
+    for (const [kind, list] of [["stroke", spec.stroke || []], ["fill", spec.fill || []]]) {
+      for (const d of list) {
+        const path = document.createElementNS(SVG_NS, "path");
+        path.setAttribute("d", d);
+        path.setAttribute("class", `icon-${kind}`);
+        svg.append(path);
+      }
+    }
+    return svg;
+  }
+
+  function handleFrom(url, prefix) {
+    const path = url.replace(/^https?:\/\/[^/]+\//, "").replace(/\/$/, "");
+    return prefix + path;
+  }
+
+  function channel(name, label, href, handle, rel) {
+    return el("li", {}, el("a", { class: "channel", href, rel }, [
+      icon(name),
+      el("span", { class: "channel__text" }, [
+        el("span", { class: "channel__label", text: label }),
+        el("span", { class: "channel__handle", text: handle }),
+      ]),
+      el("span", { class: "channel__arrow", "aria-hidden": "true", text: "\u2197" }),
+    ]));
+  }
+
+  function copyButton(email) {
+    const status = el("p", { class: "contact__status", role: "status" });
+    const button = el("button", { class: "button contact__copy", type: "button" }, "Copy address");
+    let timer;
+
+    button.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(email);
+        status.textContent = "Copied to your clipboard.";
+      } catch (error) {
+        status.textContent = `Couldn't copy automatically. The address is ${email}.`;
+      }
+      clearTimeout(timer);
+      timer = setTimeout(() => { status.textContent = ""; }, 4000);
+    });
+
+    return [button, status];
+  }
+
+  function renderContact(contact, links, person) {
+    const email = hasValue(links.email) ? links.email : null;
+    const [copy, status] = email ? copyButton(email) : [null, null];
+    const location = textOrTodo(person.location);
+
+    fill("contact", el("div", { class: "contact" }, [
+      el("div", { class: "contact__intro" }, [
+        contact && textOrTodo(contact.line) && el("p", { class: "contact__line" }, textOrTodo(contact.line)),
+        email && el("div", { class: "contact__actions" }, [
+          el("a", { class: "button button--primary", href: `mailto:${email}` }, "Email me"),
+          copy,
+        ]),
+        status,
+        location && el("p", { class: "contact__location" }, ["Based in: ", location]),
+      ]),
+      el("ul", { role: "list", class: "channels", "aria-label": "Ways to reach me" }, [
+        email && channel("email", "Email", `mailto:${email}`, email),
+        hasValue(links.github) && channel("github", "GitHub", links.github, handleFrom(links.github, "@"), "me"),
+        hasValue(links.linkedin) && channel("linkedin", "LinkedIn", links.linkedin, handleFrom(links.linkedin, ""), "me"),
+      ]),
+    ]));
   }
 
   function renderAll(data) {

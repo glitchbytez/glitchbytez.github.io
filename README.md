@@ -20,6 +20,13 @@ Almost everything lives in **`content.json`**: bio, links, projects, skills and 
 - **Project links** (`repo`, `docs`, `demo`) only render as buttons when the URL is non-empty and not a TODO.
 - **Project screenshot:** add `assets/img/<name>.webp` (1200×750 recommended) and set `imageAlt`. The image is skipped until the alt text is real.
 - **Books:** `status` is `reading`, `read` or `next`. Remove `"placeholder": true` from real entries.
+  To add a book, look it up on Open Library and save its cover locally:
+
+  ```sh
+  python3 scripts/add_book.py "deep work" "cal newport" --status read
+  ```
+
+  This prints a ready-to-paste JSON entry. Covers live in `assets/img/books/`, so the site never hotlinks images.
 
 The hero copy, `<noscript>` fallback, meta tags and JSON-LD in `index.html` repeat a few facts (name, positioning, bio, links) so the page paints instantly and works without JavaScript. If you change those in `content.json`, update `index.html` too.
 
@@ -33,7 +40,8 @@ css/base.css          reset, typography, layout primitives, paper grain
 css/components.css    header, cards, shelf, craft, polish and motion
 js/theme-init.js      applies the saved theme before first paint
 js/main.js            renders content.json, theme toggle, reveal-on-scroll
-assets/               fonts, favicon, OG image, screenshots
+assets/               fonts, favicon, OG image, screenshots, book covers
+scripts/add_book.py   fetch a book's details and cover from Open Library
 docs/DESIGN_NOTES.md  design rationale (summarised on the page)
 ```
 
