@@ -85,8 +85,7 @@
       "note": "On choosing carefully what is worth caring about.",
       "cover": "assets/img/books/subtle-art.webp",
       "coverWidth": 240,
-      "coverHeight": 359,
-      "placeholder": true
+      "coverHeight": 359
     },
     {
       "title": "Atomic Habits",
@@ -95,8 +94,7 @@
       "note": "Small, repeatable changes over big resolutions.",
       "cover": "assets/img/books/atomic-habits.webp",
       "coverWidth": 240,
-      "coverHeight": 325,
-      "placeholder": true
+      "coverHeight": 325
     },
     {
       "title": "Deep Work",
@@ -105,8 +103,7 @@
       "note": "Making room for long, undistracted focus.",
       "cover": "assets/img/books/deep-work.webp",
       "coverWidth": 240,
-      "coverHeight": 363,
-      "placeholder": true
+      "coverHeight": 363
     },
     {
       "title": "The Pragmatic Programmer",
@@ -115,8 +112,7 @@
       "note": "Habits and judgement for working software developers.",
       "cover": "assets/img/books/pragmatic-programmer.webp",
       "coverWidth": 240,
-      "coverHeight": 314,
-      "placeholder": true
+      "coverHeight": 314
     },
     {
       "title": "Wabi-Sabi for Artists, Designers, Poets & Philosophers",
@@ -125,8 +121,7 @@
       "note": "The short book behind this site's look.",
       "cover": "assets/img/books/wabi-sabi.webp",
       "coverWidth": 240,
-      "coverHeight": 369,
-      "placeholder": true
+      "coverHeight": 369
     }
   ]
 }

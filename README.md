@@ -48,5 +48,3 @@ docs/DESIGN_NOTES.md  design rationale (summarised on the page)
 ## Deploy (GitHub Pages)
 
 Push to a repo named `glitchbytez.github.io`, then go to **Settings → Pages** and select **Deploy from a branch → `main` / root**. If the site ends up at a different URL, update the canonical, OG and JSON-LD URLs in `index.html`, plus `robots.txt` and `sitemap.xml`.
-
-See `PORTFOLIO_SPEC.md` for the full spec.
