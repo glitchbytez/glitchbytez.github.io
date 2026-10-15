@@ -5,12 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ronald (glitchbytez) — Java Developer</title>
   <meta name="description" content="Java developer building dependable backend systems, with a networking and IT support background.">
+  <meta name="theme-color" content="#EFE9DD" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1F1E1C" media="(prefers-color-scheme: dark)">
+  <!-- TODO(Ronald): update these URLs if the site is not hosted at glitchbytez.github.io -->
+  <link rel="canonical" href="https://glitchbytez.github.io/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://glitchbytez.github.io/">
+  <meta property="og:title" content="Ronald (glitchbytez) — Java Developer">
+  <meta property="og:description" content="Java developer building dependable backend systems, with a networking and IT support background.">
+  <meta property="og:image" content="https://glitchbytez.github.io/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ronald, Java developer. An ink ensō circle on warm paper.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ronald (glitchbytez) — Java Developer">
+  <meta name="twitter:description" content="Java developer building dependable backend systems, with a networking and IT support background.">
+  <meta name="twitter:image" content="https://glitchbytez.github.io/assets/og-image.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ronald",
+    "alternateName": "glitchbytez",
+    "jobTitle": "Java Developer",
+    "description": "Java developer building dependable backend systems, with a networking and IT support background.",
+    "url": "https://glitchbytez.github.io/",
+    "email": "mailto:ronaldmatimba@outlook.com",
+    "sameAs": [
+      "https://github.com/glitchbytez",
+      "https://www.linkedin.com/in/ronaldmatimba"
+    ],
+    "knowsAbout": ["Java", "Spring Boot", "PostgreSQL", "REST APIs", "Azure", "Docker", "Networking"]
+  }
+  </script>
 
   <script src="js/theme-init.js"></script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap">
+  <link rel="preload" href="assets/fonts/shippori-mincho-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/zen-kaku-gothic-new-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
@@ -62,21 +97,17 @@
             <a class="button button--primary" href="#work">View work</a>
             <a class="button" href="#contact">Get in touch</a>
           </div>
-          <ul role="list" class="hero__links" data-slot="hero-links"></ul>
+          <!-- Hero copy is also in the HTML so it paints immediately with no layout shift;
+               main.js replaces it from content.json. -->
+          <ul role="list" class="hero__links" data-slot="hero-links">
+            <li><a href="https://github.com/glitchbytez" rel="me">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/ronaldmatimba" rel="me">LinkedIn</a></li>
+          </ul>
         </div>
-        <div class="hero__bio" data-slot="bio"></div>
-
-        <noscript>
-          <div class="hero__bio">
-            <p>I'm Ronald, a Java developer who likes building backend systems that are simple, reliable and easy to reason about. My background spans software development and hands-on IT support and networking, and I'm currently working towards my CCNA.</p>
-            <p>I work mostly with Spring Boot, PostgreSQL and Azure, and I care about the details that make software pleasant to live with: clear APIs, honest documentation and code that fails gracefully.</p>
-            <ul class="noscript-links">
-              <li><a href="https://github.com/glitchbytez">GitHub</a></li>
-              <li><a href="https://www.linkedin.com/in/ronaldmatimba">LinkedIn</a></li>
-              <li><a href="mailto:ronaldmatimba@outlook.com">ronaldmatimba@outlook.com</a></li>
-            </ul>
-          </div>
-        </noscript>
+        <div class="hero__bio" data-slot="bio">
+          <p>I'm Ronald, a Java developer who likes building backend systems that are simple, reliable and easy to reason about. My background spans software development and hands-on IT support and networking, and I'm currently working towards my CCNA.</p>
+          <p>I work mostly with Spring Boot, PostgreSQL and Azure, and I care about the details that make software pleasant to live with: clear APIs, honest documentation and code that fails gracefully. Away from the keyboard I enjoy quiet design and a good book.</p>
+        </div>
       </div>
     </section>
 
@@ -101,7 +132,63 @@
         <header class="section__head">
           <span class="section__eyebrow">Craft</span>
           <h2 id="craft-title">How this site was designed</h2>
+          <p class="section__intro">This page is for recruiters skimming between tabs and for hiring managers checking whether the work holds up. It aims to be clear in the first 30 seconds and to reward anyone who keeps reading. The calm is deliberate: restraint is a design decision too.</p>
         </header>
+
+        <div class="craft">
+          <div class="craft__block craft__principles">
+            <h3>Principles → decisions</h3>
+            <p class="craft__lede">The look is wabi-sabi: imperfection, impermanence, restraint. Each principle had to become a concrete choice, or it was dropped.</p>
+            <div class="table-scroll" tabindex="0" role="region" aria-label="Principles and decisions">
+              <table class="craft__table">
+                <thead>
+                  <tr><th scope="col">Principle</th><th scope="col">Decision</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row"><span lang="ja">間</span> Ma<span class="craft__gloss">space</span></th><td>One idea per section and a 65ch line length, so reading stays easy.</td></tr>
+                  <tr><th scope="row"><span lang="ja">簡素</span> Kanso<span class="craft__gloss">simplicity</span></th><td>One primary action per section; two typefaces; no stacked shadows.</td></tr>
+                  <tr><th scope="row"><span lang="ja">不均整</span> Fukinsei<span class="craft__gloss">asymmetry</span></th><td>Off-centre hero, cards at uneven offsets, a divider that starts right of centre.</td></tr>
+                  <tr><th scope="row"><span lang="ja">自然</span> Shizen<span class="craft__gloss">naturalness</span></th><td>Earth palette, faint paper grain, an ensō whose brush thins as it goes.</td></tr>
+                  <tr><th scope="row"><span lang="ja">金継ぎ</span> Kintsugi<span class="craft__gloss">golden repair</span></th><td>Gold only for lines: the divider, hover underlines, the edge of details. Never for text.</td></tr>
+                  <tr><th scope="row"><span lang="ja">静寂</span> Seijaku<span class="craft__gloss">stillness</span></th><td>One slow ensō draw and a gentle fade-in. All of it switches off with reduced motion.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="craft__block craft__report">
+            <h3>Accessibility report</h3>
+            <dl class="scores" aria-describedby="scores-note">
+              <div class="score"><dt>Accessibility</dt><dd data-score="accessibility">100</dd></div>
+              <div class="score"><dt>Performance</dt><dd data-score="performance">99</dd></div>
+              <div class="score"><dt>Best practices</dt><dd data-score="best-practices">100</dd></div>
+              <div class="score"><dt>SEO</dt><dd data-score="seo">100</dd></div>
+            </dl>
+            <p class="craft__note" id="scores-note">Lighthouse 12.8, mobile profile with simulated throttling, measured 15 October 2026 before deployment. The accessibility audit runs on axe-core.</p>
+            <ul class="craft__checks">
+              <li>Every text colour checked against WCAG AA in both themes. Moss was darkened from <code>#6B7152</code> to <code>#5F6548</code> to pass.</li>
+              <li>Tested with the keyboard alone: skip link, visible focus ring, real buttons with <code>aria-expanded</code> and <code>aria-pressed</code>.</li>
+              <li><code>prefers-reduced-motion</code> turns all motion off. Content never depends on an animation finishing.</li>
+              <li>No horizontal scrolling at 320px; touch targets of at least 44px.</li>
+              <li>Fonts are self-hosted Latin subsets (48 KB) instead of a 455 KB third-party stylesheet. That one change took Performance from 58 to 99.</li>
+            </ul>
+          </div>
+
+          <div class="craft__block craft__decisions">
+            <h3>Decisions and trade-offs</h3>
+            <dl class="decisions">
+              <dt>No carousel</dt>
+              <dd>Carousels hide work behind interaction, and few people get past the first slide. Everything is visible at once.</dd>
+              <dt>No skill bars</dt>
+              <dd>"Java 80%" says nothing. Plain lists are honest, and every item is something I can discuss in an interview.</dd>
+              <dt>Dark mode follows your system</dt>
+              <dd>The system setting is the best guess at your preference. The toggle is there if you want something else here, and it remembers.</dd>
+              <dt>Content is data</dt>
+              <dd>Text, projects and books live in one JSON file, so updating the site never means editing markup. A <code>&lt;noscript&gt;</code> fallback keeps the essentials.</dd>
+            </dl>
+            <p class="craft__next"><strong>Next:</strong> wireframes for the Splitwise balances screen, making "who owes whom" readable at a glance.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -133,6 +220,13 @@
           <h2 id="contact-title">Say hello</h2>
         </header>
         <div data-slot="contact"></div>
+        <noscript>
+          <ul class="noscript-links">
+            <li><a href="mailto:ronaldmatimba@outlook.com">ronaldmatimba@outlook.com</a></li>
+            <li><a href="https://github.com/glitchbytez">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/ronaldmatimba">LinkedIn</a></li>
+          </ul>
+        </noscript>
       </div>
     </section>
   </main>

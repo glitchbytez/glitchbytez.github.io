@@ -304,6 +304,7 @@
     ".section__head",
     ".project",
     ".skills__group",
+    ".craft__block",
     ".shelf__group",
     "[data-slot='contact'] > *",
   ].join(",");

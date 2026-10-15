@@ -4,6 +4,34 @@
    --paper and --paper-2 in both themes. --stone and --gold are for lines only.
    ========================================================================== */
 
+/* ---------- Fonts ----------
+   Self-hosted Latin subsets (SIL OFL 1.1). Japanese glyphs fall back to the
+   system font, which keeps the download under 50 KB. */
+
+@font-face {
+  font-family: "Shippori Mincho";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../assets/fonts/shippori-mincho-500-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Zen Kaku Gothic New";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/zen-kaku-gothic-new-400-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Zen Kaku Gothic New";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/zen-kaku-gothic-new-700-latin.woff2") format("woff2");
+}
+
 :root {
   color-scheme: light;
 
