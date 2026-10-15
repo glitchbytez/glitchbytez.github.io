@@ -410,7 +410,9 @@
 
 .shelf {
   display: grid;
-  gap: var(--space-xl);
+  gap: var(--space-xl) var(--space-l);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  align-items: end;
 }
 
 .shelf__row {
@@ -515,10 +517,230 @@
 
 .contact__list dd {
   min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 30rem) {
+  .contact__list {
+    grid-template-columns: 1fr;
+    row-gap: 0;
+  }
+
+  .contact__list dt:not(:first-child) {
+    margin-top: var(--space-s);
+  }
 }
 
 .contact__list a {
   display: inline-flex;
   align-items: center;
   min-height: var(--touch);
+}
+
+/* ==========================================================================
+   Wabi-sabi polish
+   ========================================================================== */
+
+/* ---------- Ensō ---------- */
+
+.hero__text {
+  position: relative;
+}
+
+.enso {
+  /* Sized in em of the h1 so the circle frames the name, never the lede */
+  position: absolute;
+  z-index: -1;
+  font-size: var(--step-4);
+  top: -0.42em;
+  left: -0.4em;
+  width: 2.05em;
+  height: auto;
+  pointer-events: none;
+}
+
+.enso__brush {
+  fill: var(--stone);
+  opacity: 0.5;
+}
+
+/* Draws itself once, slowly; static (fully drawn) by default and with reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  .enso__trace {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: enso-draw 2.6s 0.3s cubic-bezier(0.45, 0.05, 0.35, 1) forwards;
+  }
+}
+
+@keyframes enso-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ---------- Kintsugi divider ---------- */
+
+.kintsugi {
+  width: min(100%, 38rem);
+  height: 12px;
+  margin-left: auto; /* sits off-centre, towards the right */
+  overflow: visible;
+}
+
+.kintsugi path {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.25;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+/* ---------- Gold underline that grows from the left ----------
+   A quiet stone line is always present (links never rely on colour alone);
+   the gold "mend" grows over it on hover and focus. */
+
+.site-nav a,
+.hero__links a,
+.contact__list a,
+.button--quiet {
+  text-decoration: none;
+  background-image:
+    linear-gradient(var(--gold), var(--gold)),
+    linear-gradient(color-mix(in srgb, var(--stone) 60%, transparent), color-mix(in srgb, var(--stone) 60%, transparent));
+  background-repeat: no-repeat;
+  background-position: 0 calc(100% - 0.55em), 0 calc(100% - 0.55em);
+  background-size: 0% 1px, 100% 1px;
+  transition: background-size var(--dur-quick) var(--ease-out),
+              color var(--dur-quick) var(--ease-out);
+}
+
+.hero__links a,
+.contact__list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch);
+}
+
+/* Nav reads as navigation, so no resting line there */
+.site-nav a {
+  background-size: 0% 1px, 0% 1px;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible,
+.hero__links a:hover,
+.hero__links a:focus-visible,
+.contact__list a:hover,
+.contact__list a:focus-visible,
+.button--quiet:hover,
+.button--quiet:focus-visible {
+  background-size: 100% 1px, 100% 1px;
+}
+
+/* ---------- Cards: offset, uneven grid (fukinsei) ---------- */
+
+.project {
+  transition: border-color var(--dur-quick) var(--ease-out);
+}
+
+.project:hover,
+.project:focus-within {
+  border-color: var(--stone);
+}
+
+.project__toggle:hover > span:first-child {
+  color: var(--clay);
+}
+
+@media (min-width: 56rem) {
+  .projects {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: start;
+    column-gap: var(--space-l);
+  }
+
+  .project {
+    grid-column: 2 / span 7;
+    max-width: none;
+  }
+
+  .project:nth-child(2n) {
+    grid-column: 6 / span 7;
+  }
+
+  /* Deliberately uneven vertical offsets: 0 / 24px / 8px */
+  .project:nth-child(3n + 2) { translate: 0 24px; }
+  .project:nth-child(3n + 3) { translate: 0 8px; }
+
+  .skills {
+    padding-left: calc(100% / 12);
+  }
+
+  .shelf {
+    padding-left: calc(100% / 12 * 2);
+  }
+}
+
+/* ---------- Shelf: notes on hover/focus for pointer devices ----------
+   Notes stay in the accessibility tree and are always visible on touch
+   and small screens. */
+
+.book:focus-visible {
+  outline-offset: 6px;
+}
+
+.book__spine {
+  transition: translate var(--dur-quick) var(--ease-out);
+}
+
+.book:hover .book__spine,
+.book:focus-visible .book__spine {
+  translate: 0 -4px;
+}
+
+@media (hover: hover) and (min-width: 48rem) {
+  .book__note {
+    opacity: 0;
+    transition: opacity var(--dur-quick) var(--ease-out);
+  }
+
+  .book:hover .book__note,
+  .book:focus-visible .book__note,
+  .book:focus-within .book__note {
+    opacity: 1;
+  }
+}
+
+/* ---------- Reveal on scroll ----------
+   Content is only hidden once JS has confirmed it can reveal it again
+   (html.reveal-ready), so nothing is lost without JS or with reduced motion. */
+
+.reveal-ready .reveal {
+  opacity: 0;
+  translate: 0 12px;
+  transition: opacity var(--dur-reveal) var(--ease-out),
+              translate var(--dur-reveal) var(--ease-out);
+}
+
+.reveal-ready .reveal.is-visible {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* The offset cards keep their offset once revealed */
+@media (min-width: 56rem) {
+  .reveal-ready .project.reveal.is-visible:nth-child(3n + 2) { translate: 0 24px; }
+  .reveal-ready .project.reveal.is-visible:nth-child(3n + 3) { translate: 0 8px; }
+}
+
+/* ---------- Reduced motion: stillness everywhere ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    /* !important is justified: this must beat every component transition. */
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
