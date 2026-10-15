@@ -1,0 +1,185 @@
+/* ==========================================================================
+   Components — header, nav, toggle, buttons, footer.
+   ========================================================================== */
+
+/* ---------- Header ---------- */
+
+.site-header {
+  border-bottom: var(--hairline);
+}
+
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-xs) var(--space-m);
+  padding-block: var(--space-s);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-2xs);
+  min-height: var(--touch);
+  padding-block: var(--space-2xs);
+  color: var(--ink);
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.wordmark:hover {
+  color: var(--ink);
+}
+
+.wordmark__name {
+  font-family: var(--font-serif);
+  font-size: var(--step-1);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.wordmark__alias {
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+
+/* ---------- Nav ---------- */
+
+.site-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-s);
+}
+
+.site-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch);
+  padding-inline: var(--space-3xs);
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: var(--step--1);
+  letter-spacing: 0.04em;
+}
+
+.site-nav a:hover {
+  color: var(--ink);
+}
+
+/* ---------- Theme toggle ---------- */
+
+.theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: var(--touch);
+  height: var(--touch);
+  padding: 0;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: color var(--dur-quick) var(--ease-out),
+              border-color var(--dur-quick) var(--ease-out);
+}
+
+.theme-toggle:hover {
+  color: var(--ink);
+  border-color: var(--stone);
+}
+
+.theme-toggle__icon {
+  transition: transform var(--dur-reveal) var(--ease-out);
+}
+
+.theme-toggle[aria-pressed="true"] .theme-toggle__icon {
+  transform: rotate(180deg);
+}
+
+/* Small screens: wordmark + toggle on the first line, nav below */
+@media (max-width: 34rem) {
+  .site-nav {
+    order: 3;
+    flex-basis: 100%;
+  }
+
+  .site-nav__list {
+    gap: 0 var(--space-xs);
+  }
+}
+
+/* ---------- Buttons ---------- */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--touch);
+  padding: var(--space-2xs) var(--space-m);
+  border: 1px solid var(--ink-soft);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--ink);
+  font-size: var(--step--1);
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: border-color var(--dur-quick) var(--ease-out),
+              background-color var(--dur-quick) var(--ease-out),
+              color var(--dur-quick) var(--ease-out);
+}
+
+.button:hover {
+  border-color: var(--clay);
+  color: var(--clay);
+}
+
+.button--primary {
+  background: var(--clay);
+  border-color: var(--clay);
+  color: var(--paper);
+}
+
+.button--primary:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  padding-block: var(--space-2xl) var(--space-xl);
+}
+
+.hero__title {
+  margin-bottom: var(--space-s);
+}
+
+.hero__lede {
+  font-size: var(--step-1);
+  color: var(--ink-soft);
+  max-width: 34ch;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+  margin-top: var(--space-l);
+}
+
+.hero__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-m);
+  margin-top: var(--space-m);
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  border-top: var(--hairline);
+  padding-block: var(--space-l);
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}

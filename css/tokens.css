@@ -1,0 +1,88 @@
+/* ==========================================================================
+   Design tokens — colour, type, spacing, motion.
+   Contrast checked against WCAG AA: every text token passes 4.5:1 on both
+   --paper and --paper-2 in both themes. --stone and --gold are for lines only.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* Washi (light) */
+  --paper:    #EFE9DD;
+  --paper-2:  #E6DFD0;
+  --ink:      #2B2A28;
+  --ink-soft: #5A564F;
+  --stone:    #8A857C;
+  --moss:     #5F6548; /* darkened from #6B7152 (4.23:1) to pass AA on both surfaces */
+  --clay:     #8F4F36;
+  --gold:     #B8975A;
+
+  --grain-opacity: 0.035;
+
+  /* Type */
+  --font-serif: "Shippori Mincho", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Zen Kaku Gothic New", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --step--1: clamp(0.875rem, 0.85rem + 0.1vw, 0.9375rem);
+  --step-0:  clamp(1.0625rem, 1.03rem + 0.15vw, 1.125rem);   /* 17–18px body */
+  --step-1:  clamp(1.25rem, 1.18rem + 0.35vw, 1.5rem);
+  --step-2:  clamp(1.5rem, 1.35rem + 0.75vw, 2rem);
+  --step-3:  clamp(1.875rem, 1.6rem + 1.4vw, 2.875rem);
+  --step-4:  clamp(2.375rem, 1.9rem + 2.6vw, 4.25rem);
+
+  --leading: 1.65;
+  --measure: 65ch;
+
+  /* Space — long, generous rhythm (ma) */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs:  0.75rem;
+  --space-s:   1rem;
+  --space-m:   1.5rem;
+  --space-l:   2.5rem;
+  --space-xl:  4rem;
+  --space-2xl: clamp(5rem, 4rem + 5vw, 9rem);
+
+  --gutter: clamp(1.25rem, 0.75rem + 3vw, 3.5rem);
+  --content-max: 72rem;
+
+  /* Lines and shape */
+  --hairline: 1px solid color-mix(in srgb, var(--stone) 55%, transparent);
+  --radius: 3px;
+  --touch: 44px;
+
+  /* Motion (seijaku: slow and quiet) */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-quick: 300ms;
+  --dur-reveal: 600ms;
+}
+
+/* Sumi night (dark): follows the system unless the visitor chose light */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper:    #1F1E1C;
+    --paper-2:  #292724;
+    --ink:      #E8E2D6;
+    --ink-soft: #B3ADA1;
+    --stone:    #6F6A62;
+    --moss:     #A3AA86;
+    --clay:     #D08F73;
+    --gold:     #C9A96B;
+    --grain-opacity: 0.05;
+  }
+}
+
+/* Manual override */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper:    #1F1E1C;
+  --paper-2:  #292724;
+  --ink:      #E8E2D6;
+  --ink-soft: #B3ADA1;
+  --stone:    #6F6A62;
+  --moss:     #A3AA86;
+  --clay:     #D08F73;
+  --gold:     #C9A96B;
+  --grain-opacity: 0.05;
+}

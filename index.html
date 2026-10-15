@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ronald (glitchbytez) — Java Developer</title>
+  <meta name="description" content="Java developer building dependable backend systems, with a networking and IT support background.">
+
+  <script src="js/theme-init.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="wordmark" href="#top" aria-label="Ronald, aka glitchbytez — back to top">
+        <span class="wordmark__name">Ronald</span>
+        <span class="wordmark__alias">aka glitchbytez</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <ul role="list" class="site-nav__list">
+          <li><a href="#work">Work</a></li>
+          <li><a href="#craft">Craft</a></li>
+          <li data-nav="shelf"><a href="#shelf">Shelf</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark theme">
+        <svg class="theme-toggle__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero__inner">
+        <div class="hero__text">
+          <h1 id="hero-title" class="hero__title">Ronald</h1>
+          <p class="hero__lede" data-slot="positioning"></p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#work">View work</a>
+            <a class="button" href="#contact">Get in touch</a>
+          </div>
+          <ul role="list" class="hero__links" data-slot="hero-links"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <header class="section__head">
+          <span class="section__eyebrow">Work</span>
+          <h2 id="work-title">Things I've built</h2>
+        </header>
+        <div class="projects" data-slot="projects"></div>
+      </div>
+    </section>
+
+    <section class="section" id="craft" aria-labelledby="craft-title">
+      <div class="wrap">
+        <header class="section__head">
+          <span class="section__eyebrow">Craft</span>
+          <h2 id="craft-title">How this site was designed</h2>
+        </header>
+      </div>
+    </section>
+
+    <section class="section" id="practice" aria-labelledby="practice-title">
+      <div class="wrap">
+        <header class="section__head">
+          <span class="section__eyebrow">Practice</span>
+          <h2 id="practice-title">What I work with</h2>
+        </header>
+        <div class="skills" data-slot="skills"></div>
+      </div>
+    </section>
+
+    <section class="section" id="shelf" aria-labelledby="shelf-title">
+      <div class="wrap">
+        <header class="section__head">
+          <span class="section__eyebrow">Shelf</span>
+          <h2 id="shelf-title">On the shelf</h2>
+        </header>
+        <div class="shelf" data-slot="books"></div>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <header class="section__head">
+          <span class="section__eyebrow">Contact</span>
+          <h2 id="contact-title">Say hello</h2>
+        </header>
+        <div data-slot="contact"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer__inner">
+      <p>Made slowly, with care. &copy; <span data-slot="year">2026</span> Ronald</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
