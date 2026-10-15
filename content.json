@@ -1,15 +1,15 @@
 {
   "site": {
-    "title": "Ronald (glitchbytez) — Java Developer",
-    "description": "Java developer building dependable backend systems, with a networking and IT support background.",
+    "title": "Ronald (glitchbytez) — Junior Java Developer",
+    "description": "Junior Java developer building dependable backend systems, with a networking and IT support background.",
     "lang": "en"
   },
   "person": {
     "displayName": "Ronald",
     "alias": "glitchbytez",
-    "positioning": "Java developer who builds dependable backend systems, with a networking and IT support background.",
+    "positioning": "Junior Java developer who builds dependable backend systems, with a networking and IT support background.",
     "bio": [
-      "I'm Ronald, a Java developer who likes building backend systems that are simple, reliable and easy to reason about. My background spans software development and hands-on IT support and networking, and I'm currently working towards my CCNA.",
+      "I'm Ronald, a junior Java developer who likes building backend systems that are simple, reliable and easy to reason about. My background spans software development and hands-on IT support and networking, and I'm currently working towards my CCNA.",
       "I work mostly with Spring Boot, PostgreSQL and Azure, and I care about the details that make software pleasant to live with: clear APIs, honest documentation and code that fails gracefully. Away from the keyboard I enjoy quiet design and a good book."
     ],
     "location": "TODO(Ronald): city/country or 'Open to remote'"
@@ -54,6 +54,34 @@
       "imageWidth": 1200,
       "imageHeight": 750,
       "imageAlt": "TODO(Ronald): describe the screenshot, e.g. Swagger UI listing the API endpoints"
+    },
+    {
+      "id": "ventry",
+      "title": "Ventry: IT Asset Inventory API",
+      "status": "Core API done",
+      "summary": "A REST API for tracking IT assets such as laptops, servers and network devices: what exists, where it is, who has it and what state it's in.",
+      "problem": "As an IT Operations Intern at National Blood Services Zimbabwe, I kept ICT asset inventories and ran equipment audits by hand. Ventry rebuilds that workflow as a proper backend service.",
+      "role": "Designed and built the backend",
+      "highlights": [
+        "JWT-secured REST API with full CRUD for assets, plus filtering by status, category or assigned person",
+        "Asset model drawn from real audit work: unique asset tags, serial numbers, locations, warranty dates and five lifecycle statuses",
+        "Layered controller, service and repository design with input validation, BCrypt passwords and consistent JSON error responses"
+      ],
+      "next": "A React front end (in progress), admin-only actions, proper user-to-asset links, automated tests and pagination",
+      "stack": [
+        "Java 17",
+        "Spring Boot",
+        "Spring Security",
+        "JWT",
+        "Spring Data JPA",
+        "PostgreSQL",
+        "Docker"
+      ],
+      "links": {
+        "repo": "https://github.com/glitchbytez/ventry",
+        "demo": "",
+        "docs": ""
+      }
     },
     {
       "id": "rasa-chat-widget",
