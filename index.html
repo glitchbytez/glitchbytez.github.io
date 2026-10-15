@@ -49,13 +49,26 @@
       <div class="wrap hero__inner">
         <div class="hero__text">
           <h1 id="hero-title" class="hero__title">Ronald</h1>
-          <p class="hero__lede" data-slot="positioning"></p>
+          <p class="hero__lede" data-slot="positioning">Java developer who builds dependable backend systems, with a networking and IT support background.</p>
           <div class="hero__actions">
             <a class="button button--primary" href="#work">View work</a>
             <a class="button" href="#contact">Get in touch</a>
           </div>
           <ul role="list" class="hero__links" data-slot="hero-links"></ul>
         </div>
+        <div class="hero__bio" data-slot="bio"></div>
+
+        <noscript>
+          <div class="hero__bio">
+            <p>I'm Ronald, a Java developer who likes building backend systems that are simple, reliable and easy to reason about. My background spans software development and hands-on IT support and networking, and I'm currently working towards my CCNA.</p>
+            <p>I work mostly with Spring Boot, PostgreSQL and Azure, and I care about the details that make software pleasant to live with: clear APIs, honest documentation and code that fails gracefully.</p>
+            <ul class="noscript-links">
+              <li><a href="https://github.com/glitchbytez">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/ronaldmatimba">LinkedIn</a></li>
+              <li><a href="mailto:ronaldmatimba@outlook.com">ronaldmatimba@outlook.com</a></li>
+            </ul>
+          </div>
+        </noscript>
       </div>
     </section>
 
@@ -93,6 +106,7 @@
         <header class="section__head">
           <span class="section__eyebrow">Shelf</span>
           <h2 id="shelf-title">On the shelf</h2>
+          <p class="section__intro" data-slot="shelf-intro"></p>
         </header>
         <div class="shelf" data-slot="books"></div>
       </div>

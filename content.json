@@ -1,0 +1,60 @@
+{
+  "site": {
+    "title": "Ronald (glitchbytez) — Java Developer",
+    "description": "Java developer building dependable backend systems, with a networking and IT support background.",
+    "lang": "en"
+  },
+  "person": {
+    "displayName": "Ronald",
+    "alias": "glitchbytez",
+    "positioning": "Java developer who builds dependable backend systems, with a networking and IT support background.",
+    "bio": [
+      "I'm Ronald, a Java developer who likes building backend systems that are simple, reliable and easy to reason about. My background spans software development and hands-on IT support and networking, and I'm currently working towards my CCNA.",
+      "I work mostly with Spring Boot, PostgreSQL and Azure, and I care about the details that make software pleasant to live with: clear APIs, honest documentation and code that fails gracefully. Away from the keyboard I enjoy quiet design and a good book."
+    ],
+    "location": "TODO(Ronald): city/country or 'Open to remote'"
+  },
+  "links": {
+    "github": "https://github.com/glitchbytez",
+    "linkedin": "https://www.linkedin.com/in/ronaldmatimba",
+    "email": "ronaldmatimba@outlook.com"
+  },
+  "contact": {
+    "line": "If you're hiring, or just want to talk about backend systems, networks or a good book, I'd be glad to hear from you."
+  },
+  "projects": [
+    {
+      "id": "splitwise",
+      "title": "Splitwise-style Expense Splitter",
+      "status": "In progress",
+      "summary": "A backend for splitting shared expenses among groups of friends, built API-first with Java and Spring Boot.",
+      "problem": "Shared costs get messy fast. The goal is to track who paid, who owes whom, and how to settle up with the fewest payments.",
+      "role": "Designed and built the backend",
+      "highlights": [
+        "JWT-secured REST API with registration, login and user profiles",
+        "Group and membership model with role-based rules, backed by PostgreSQL and Flyway migrations",
+        "Dockerised local setup with OpenAPI docs via springdoc-openapi"
+      ],
+      "next": "Expenses with equal, exact and percentage splits, balances, settlements and debt simplification",
+      "stack": ["Java 21", "Spring Boot", "PostgreSQL", "Flyway", "Docker", "JWT", "springdoc-openapi"],
+      "links": { "repo": "TODO(Ronald): repo URL", "demo": "", "docs": "" },
+      "image": "assets/img/splitwise.webp",
+      "imageWidth": 1200,
+      "imageHeight": 750,
+      "imageAlt": "TODO(Ronald): describe the screenshot, e.g. Swagger UI listing the API endpoints"
+    }
+  ],
+  "skills": {
+    "Backend & data": ["Java", "Spring Boot", "PostgreSQL", "REST APIs", "springdoc-openapi"],
+    "Cloud & delivery": ["Azure", "GitHub", "Docker"],
+    "Networking & support": ["CCNA (in progress)", "IT support"]
+  },
+  "shelf": {
+    "intro": "TODO(Ronald): one line on what you read for"
+  },
+  "books": [
+    { "title": "Placeholder book one", "author": "Author", "status": "reading", "note": "A short note on why this is on the shelf.", "cover": "", "placeholder": true },
+    { "title": "Placeholder book two", "author": "Author", "status": "read", "note": "A short note on why this is on the shelf.", "cover": "", "placeholder": true },
+    { "title": "Placeholder book three", "author": "Author", "status": "next", "note": "A short note on why this is on the shelf.", "cover": "", "placeholder": true }
+  ]
+}
